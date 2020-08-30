@@ -7,3 +7,5 @@ Things that it Does:
 * Creates a csv file data log (similar to excel) and records in it the time against recieved data
 
 Check the **Demo** [here](https://drive.google.com/file/d/1wGvZVUVXI5cjCqmu84g668lhaW0fSIiO/view?usp=sharing)
+# Test data log:
+![alt text](https://github.com/PoeQulta/LycansGUI/blob/master/images/testDatalog.png?raw=true)
