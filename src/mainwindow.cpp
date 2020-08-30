@@ -8,6 +8,7 @@
 #include "chart.h"
 #include <QtCharts/QChartView>
 #include <QtSerialPort/QSerialPortInfo>
+#include <QGraphicsEllipseItem>
 #include <QTime>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -102,6 +103,13 @@ void MainWindow::on_pushButton_Payload_clicked()
 {
     //handles button event
     thread.release_Payload = true;
+    QtCharts::QLineSeries* payloadMark = new QtCharts::QLineSeries();
+
+    payloadMark->append(chart->m_x,0);
+    payloadMark->append(chart->m_x,500);
+    chart->addSeries(payloadMark);
+    payloadMark->attachAxis(chart->axisX());
+    payloadMark->attachAxis(chart->axisY());
     QFile data("Data.csv");
     if(data.open(QIODevice::WriteOnly | QIODevice::Append))
     {
@@ -114,6 +122,13 @@ void MainWindow::on_pushButton_Payload_clicked()
 void MainWindow::on_pushButton_CDA_clicked()
 {
     thread.release_CDA = true;
+    QtCharts::QLineSeries* CDAMark = new QtCharts::QLineSeries();
+
+    CDAMark->append(chart->m_x,0);
+    CDAMark->append(chart->m_x,500);
+    chart->addSeries(CDAMark);
+    CDAMark->attachAxis(chart->axisX());
+    CDAMark->attachAxis(chart->axisY());
     QFile data("Data.csv");
     if(data.open(QIODevice::WriteOnly | QIODevice::Append))
     {

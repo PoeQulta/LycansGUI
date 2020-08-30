@@ -16,6 +16,8 @@ class Chart : public QtCharts::QChart{
 public:
     Chart(QGraphicsItem *parent = nullptr, Qt::WindowFlags wFlags = {});
         virtual ~Chart();
+    int m_x;
+    int m_y;
 public slots:
     void handleTimeout(int data);
 private:
@@ -25,8 +27,7 @@ private:
     QtCharts::QValueAxis *m_axisX;
     QtCharts::QValueAxis *m_axisY;
     qreal m_step;
-    int m_x;
-    int m_y;
+
 };
 
 #endif // CHART_H
